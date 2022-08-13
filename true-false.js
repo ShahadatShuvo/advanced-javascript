@@ -2,7 +2,7 @@
 
 // truthy values list: '0', ' ', [], {}
 
-// to check assign any value into a and see the output.
+// to check assign any value into a and see the output..
 let a;
 console.log(a); //undefined
 if (a) {
