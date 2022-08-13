@@ -16,3 +16,7 @@ var y = x;
 x.name = "Js";
 console.log(x); //Js
 console.log(y); //Js  {copied by reference} like pointers in C lang
+
+console.log(1 === 1); // true
+console.log([] === []); // false
+console.log({} === {}); //false
