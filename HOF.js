@@ -30,6 +30,9 @@ function double(item) {
 
 numbers.map(double); // [2, 4, 6]
 
+// Why It Is Useful?
+// The best part of higher-order functions is composability. It gives you the ability to combine functions and operate them in a sequence. For example, you could compose HoF in a pipeline with array methods:
+
 const numbers2 = [1, 2, 3];
 
 console.log(
