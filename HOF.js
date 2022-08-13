@@ -41,3 +41,7 @@ console.log(
     .filter((n) => n % 4) // it will filter out number that divides by 4
     .reduce((a, b) => a + b) // return 6 - sum of the array items
 );
+
+console.log(1 === 1); // true
+console.log([] === []); // false
+console.log({} === {}); //false
