@@ -13,10 +13,10 @@ function greeting() {
 }
 
 const johnGreeting = greeting.bind(john);
-console.log(johnGreeting());
+console.log(johnGreeting()); //Hi I am john and I am 24 years old
 
 const mikeGreeting = greeting.bind(mike);
-console.log(mikeGreeting());
+console.log(mikeGreeting()); // Hi I am mike and I am 32 years old
 
 // "Variables has local and global scopes. Let's suppose that we have two variables
 // with the same name. One is globally defined and the other is defined inside a
