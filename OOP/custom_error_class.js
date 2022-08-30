@@ -13,6 +13,9 @@ class NotFoundError extends Error {
 try {
   throw new NotFoundError("NotFound Error", "This user is not Found");
 } catch (error) {
+  if (error instanceof NotFoundError) {
+    console.log("yes"); // yes
+  }
   console.log(error); // { [NotFoundError: This user is not Found] name: 'NotFoundError' }
   console.log(error.message); // This user is not Found
 
