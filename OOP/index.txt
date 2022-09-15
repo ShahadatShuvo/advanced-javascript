@@ -1,0 +1,6 @@
+OOP = Object Oriented programming
+
+Encapsulation = Reduce Complexity
+Abstruction = Reduce Complexity + isolate impact of cahnges
+Inheritance = Eliminate redundant code
+Polymorphism = Refactor ugly switch/cae statements
