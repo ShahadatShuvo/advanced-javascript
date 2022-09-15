@@ -23,3 +23,40 @@ function displayAlert() {
 // document.cookie = "username=John Doe";
 
 // document.cookie = "username=Shahadat; expires=Thu, 15 Dec 2022 11:00:00 UTC";
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+getLocation();
+
+function showPosition(position) {
+  getReverseGeocodingData(position.coords.latitude, position.coords.longitude);
+
+  x.innerHTML =
+    "Latitude: " +
+    position.coords.latitude +
+    "<br>Longitude: " +
+    position.coords.longitude;
+}
+
+function getReverseGeocodingData(lat, lng) {
+  var latlng = new google.maps.LatLng(lat, lng);
+  // This is making the Geocode request
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ latLng: latlng }, (results, status) => {
+    if (status !== google.maps.GeocoderStatus.OK) {
+      alert(status);
+    }
+    // This is checking to see if the Geoeode Status is OK before proceeding
+    if (status == google.maps.GeocoderStatus.OK) {
+      console.log(results);
+      var address = results[0].formatted_address;
+      console.log(address);
+    }
+  });
+}
