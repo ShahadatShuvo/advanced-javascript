@@ -1,22 +1,10 @@
-class MobilePhone {
-  constructor(brand, model) {
-    this.brand = brand;
-    this.model = model;
-  }
+// Given an Array of integer, make the double of the values and return a new array which values is greater than 10.
 
-  getModel() {
-    return this.model;
-  }
-  getbrand() {
-    return this.brand;
-  }
-  sendtext() {
-    return `using ${this.model} of ${this.brand} to send text`;
-  }
-}
+let arr = [2, 9, 7, 8, 3];
 
-let newMobilePhone = new MobilePhone("Apple", "iPhone X");
-console.log(newMobilePhone.getModel()); // iPhone X
-console.log(newMobilePhone.getbrand()); // Apple
-console.log(newMobilePhone.sendtext()); // using iPhone X of Apple to send text
-console.log(newMobilePhone); // MobilePhone { brand: 'Apple', model: 'iPhone X' }
+console.log(
+  arr
+    .sort((a, b) => a - b)
+    .map((item) => 2 * item)
+    .filter((item) => item > 10)
+);
