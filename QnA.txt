@@ -1,0 +1,76 @@
+1. Question: is javascript a interpreted language?
+
+Answer: JavaScript is an interpreted language, not a compiled language. A program such as C++ or Java needs to be compiled before it is run. The source code is passed through a program called a compiler, which translates it into bytecode that the machine understands and can execute. In contrast, JavaScript has no compilation step. Instead, an interpreter in the browser reads over the JavaScript code, interprets each line, and runs it. More modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
+
+
+2. Question: What a Single-Threaded Process?
+
+Answer: A single-threaded process is the execution of programmed instructions in a single sequence. Having said that, if an application has the following set of instructions:
+Instruction A
+Instruction B
+Instruction C
+If these set of instructions are executed in a single-threaded process, the execution would look like the following:
+                                    Single Threaded
+                                 Core <- A <- B <- C
+
+
+3. Question: What a Multi-Threaded Process?
+
+Answer: A multi-threaded process is the execution of programmed instructions in multiple sequences. Therefore, instructions won’t have to wait to execute unless multiple instructions are grouped within different sequences.
+                                                Multi threaded
+                                    Core <- A <- C  ------[ [Shared Memory]
+                                    Core <- D <- B  ------  [Shared Memory]
+                                    Core <- E <- F  ------  [Shared Memory]  ]
+
+
+4. Question: what does single threaded mean in js?
+
+Answer: JavaScript is a single-threaded language, which means it has 
+only one call stack that is used to execute the program. The 
+call stack is the same as the stack data structure that you might 
+read in Data structures.
+
+5. Question: is node js single threaded?
+
+Answer: No. NodeJs is not single threaded.
+The NodeJs event loop operates on a single thread yes,
+but the async blocking operations are delegated to separate
+worker threads.
+
+6. Question: What is call stack?
+
+Answer: The call stack keeps track of functions to be executed. When we call a function, it’s added, or pushed to the top of the call stack. When the function returns, it’s removed, or popped from the call stack. Any asynchronous functions (fetch, setTimeout, async, etc.) are moved to the event queue (more on that later).
+
+7. How does the Call Stack Work?
+
+Answer: You might have heard that JavaScript is single-threaded. This means it has only one call stack and it can only process one statement at a time. The call stack follows the LIFO (Last In, First Out) principle, which means it will always process the call on top of the stack first.
+
+When a function is called it’s added to the stack. When a function calls another function, it’s added on top of the calling function.
+
+            const sayHi = ()=> {
+                sayBye();
+                console.log("Hi");
+            }
+            const sayBye = ()=> {
+                console.log("Bye");
+            }
+
+Given the above block of code, we can assert that:
+
+First, sayHi is invoked and added to the call stack (sayHi has not yet resolved).
+sayHi then invokes sayBye and adds sayBye to the call stack (both functions are still unresolved).
+At this point, the call stack status is currently:
+
+                          Call Stack:
+                        [top] sayBye()
+                     [bottom] sayHi()  
+
+sayBye is now at the top of the call stack. It will execute and print out ‘Bye’ to the console. Then, it is removed from the top of the call stack.
+
+                            Call Stack:
+                     [bottom, top] sayHi()  
+
+Now, sayHi is at the top of the call stack. It will print out ‘Hi’ to the console then be removed from the call stack. The call stack is now empty.
+
+The final output:  "Bye"
+                   "Hi"
